@@ -113,7 +113,7 @@ function generateXMLTV(host) {
     const start = startTime.toISOString().replace(/[-:T]/g, '').split('.')[0] + ' +0000';
     const end = endTime.toISOString().replace(/[-:T]/g, '').split('.')[0] + ' +0000';
     xml += `
-<programme start="${start}" end="${end}" channel="WS4000">
+<programme start="${start}" stop="${end}" channel="WS4000">
 <title lang="en">Local Weather</title>
 <desc lang="en">Enjoy your local weather with a touch of nostalgia.</desc>
 <icon src="${baseUrl}/logo/ws4000.png" />
@@ -183,10 +183,7 @@ async function startTranscoding() {
       '-b:a 128k',
       '-preset ultrafast',
       '-b:v 1000k',
-      '-f hls',
-      '-hls_time 2',
-      '-hls_list_size 2',
-      '-hls_flags delete_segments'
+      '-f mpegts'
     ])
     .output(HLS_FILE)
     .on('start', () => {
