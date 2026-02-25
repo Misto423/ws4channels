@@ -1,3 +1,8 @@
+# Fork Update
+
+- Fixed the XMLTV format to correctly use the 'stop' attribute instead of 'end'
+- Changed the file output format to 'mpegts' instead of 'hls' for better compatiblity in Plex on Smart TVs
+
 # Latest Update
 
 Fixed some users reporting MaxListenersExceeded warning. 
